@@ -90,8 +90,22 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-// add prompts here such as password length
+    // Prompt user about length of the password
+    // while the user input is not a number or < 10 or > 64, we prompt them again about the length of the password
 
+    // use confirm to ask user if they want Lowercase
+    // use confirm to ask user if they want Uppercase
+    // use confirm to ask user if they want Numeric
+    // use confirm to ask user if they want Special characters
+    // while the user says no to all of the above, repeat these series of confirm
+
+    return {
+        length: length,
+        isLowercaseIncluded: isLowercaseIncluded,
+        isUppercaseIncluded: isUppercaseIncluded,
+        isNumberIncluded: isNumberIncluded,
+        isSpecialCharsIncluded: isSpecialCharsIncluded,
+    };
 }
 
 // Function for getting a random element from an array
@@ -101,12 +115,58 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-// prompt user about length of the password
-//while user input is not a number or less than ten or more than 64 we prompt them again
-// use confirm to ask user if user wants lower case 
-//use confirm if they want upper case
-// confirm if they want character
-// while user says no to all of them, repeat these series of confirm
+    var passwordOptions = getPasswordOptions();
+
+    var possibleCharacters = [];
+    // If lowercase included then add lowerCasedCharacters array to possibleCharacters array => possibleCharacters = possibleCharacters.concat(lowerCasedCharacters)
+    // If uppercase included then add upperCasedCharacters array to possibleCharacters array
+    // If numeric included then add numericCharacters array to possibleCharacters array
+    // If special characters included then add specialCharacters array to possibleCharacters array
+
+    // possibleCharacters = ['a', 'A', 1, '!', ... 'z', 'Z']
+
+    var password = '';
+
+    // either wrap this for loop and the check in a while loop or
+    // wrap the check and the 4 ifs statements below in a while loop
+    for (var i = 0; i < passwordOptions.length; i++) {
+        // choose 1 random element from possibleCharacters array say randomCharacter variable, use getRandom function
+        password = password + getRandom(possibleCharacters)
+    }
+
+    // Check if password satisfy isLowercaseIncluded, isUppercaseIncluded, isNumberIncluded, isSpecialCharsIncluded requirements
+    if (isLowercaseIncluded) {
+        // check if password variable have element from lowerCasedCharacters array
+        // if not then
+        // option 1. regenerate random password and do this check again
+        // option 2. get random character from lowerCasedCharacters then put that character in a random position of the string
+    }
+
+    if (isUppercaseIncluded) {
+        // check if password variable have element from upperCasedCharacters array
+
+        // if not then
+        // option 1. regenerate random password and do this check again
+        // option 2. get random character from upperCasedCharacters then put that character in a random position of the string
+    }
+
+    if (isNumberIncluded) {
+        // check if password variable have element from numericCharacters array
+
+        // if not then
+        // option 1. regenerate random password and do this check again
+        // option 2. get random character from numericCharacters then put that character in a random position of the string
+    }
+
+    if (isSpecialCharsIncluded) {
+        // check if password variable have element from specialCharacters array
+
+        // if not then
+        // option 1. regenerate random password and do this check again
+        // option 2. get random character from specialCharacters then put that character in a random position of the string
+    }
+
+    return password;
 }
 
 // Get references to the #generate element
