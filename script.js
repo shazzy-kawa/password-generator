@@ -104,10 +104,10 @@ function getPasswordOptions() {
       var isLowercaseIncluded = confirm('Do you want to include lowercase characters in your password?');
       var isUppercaseIncluded = confirm ('Do you want to include uppercase characters in your password?');
       var isNumberIncluded = confirm ('Do you want to include numbers in your password?');
-      var isSpecialCharactersIncluded = confirm('Do you want to include any special chacaters in your password?');
+      var isSpecialCharsIncluded = confirm('Do you want to include any special chacaters in your password?');
     
     return {
-        passwordlength: passwordlength,
+        passwordLength: passwordLength,
         isLowercaseIncluded: isLowercaseIncluded,
         isUppercaseIncluded: isUppercaseIncluded,
         isNumberIncluded: isNumberIncluded,
