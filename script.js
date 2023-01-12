@@ -99,18 +99,25 @@ function getPasswordOptions() {
     // use confirm to ask user if they want Special characters
     // while the user says no to all of the above, repeat these series of confirm
 
+    
+      var passwordLength = prompt( 'How long would you like your password to be? Please enter a number between 10 and 64');
+      var isLowercaseIncluded = confirm('Do you want to include lowercase characters in your password?');
+      var isUppercaseIncluded = confirm ('Do you want to include uppercase characters in your password?');
+      var isNumberIncluded = confirm ('Do you want to include numbers in your password?');
+      var isSpecialCharactersIncluded = confirm('Do you want to include any special chacaters in your password?');
+    
     return {
-        length: length,
+        passwordlength: passwordlength,
         isLowercaseIncluded: isLowercaseIncluded,
         isUppercaseIncluded: isUppercaseIncluded,
         isNumberIncluded: isNumberIncluded,
         isSpecialCharsIncluded: isSpecialCharsIncluded,
     };
-}
+} // return as object, use object keys to call in generatePassword function
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+ return arr[Math.floor(Math.floor(Math.randon()*arrays.length))];
 }
 
 // Function to generate password with user input
